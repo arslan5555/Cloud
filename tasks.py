@@ -5,7 +5,7 @@ import operator
 from collections import Counter
 from celery import Celery
 
-app = Celery('tasks', backend='rpc://', broker='pyamqp://')
+app = Celery('tasks', backend='rpc://', broker='amqp://a_ham:asdfgh123@192.168.2.221:5672/myvhost')
 
 @app.task
 def file_function(file_name):
@@ -42,6 +42,5 @@ def file_function(file_name):
 						count_hen +=1
 
 	D = Counter({'han' : count_han, 'hon' : count_hon, 'den' : count_den, 'det' : count_det, 'denna' : count_denna, 'denne':count_denne, 'hen': count_hen})
-	#D = dict( han = count_han, hon = count_hon, den = count_den, det = count_det, denna = count_denna, denne=count_denne, hen=count_hen)
 	return D,unique_tweets
 
