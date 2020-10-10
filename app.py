@@ -1,9 +1,8 @@
 from collections import Counter
 from flask import jsonify
 from tasks import file_function
-import os
-from flask import Flask, render_template
-import time
+import os, time
+from flask import Flask
 
 app = Flask(__name__)
 
@@ -26,7 +25,6 @@ def counter():
 	print("Unique tweet count: ",unique_tweet_count)
 	end_time=time.time()
 	print("time is %s seconds" % (time.time() - start_time))
-	#return total_count
 	return 'Pronouns_{} Unique_Tweets_Count={}'.format(total_count,unique_tweet_count)
 if __name__ == '__main__':
     #app.debug = True
